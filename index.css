@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 263 100% 89%;
+    --foreground: 263 50% 15%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 263 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 263 50% 15%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 263 60% 85%;
+    --secondary-foreground: 263 50% 15%;
+
+    --muted: 263 30% 75%;
+    --muted-foreground: 263 20% 40%;
+
+    --accent: 330 70% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 263 40% 80%;
+    --input: 263 40% 80%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.5rem;
+
+    --vintage-purple: 263 70% 50%;
+    --vintage-lavender: 263 100% 89%;
+    --vintage-mauve: 263 30% 65%;
+    --vintage-cream: 40 30% 95%;
+    --vintage-dark: 263 50% 15%;
+  }
+
+  .dark {
+    --background: 263 50% 8%;
+    --foreground: 263 20% 90%;
+
+    --card: 263 50% 12%;
+    --card-foreground: 263 20% 90%;
+
+    --popover: 263 50% 12%;
+    --popover-foreground: 263 20% 90%;
+
+    --primary: 263 70% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 263 40% 20%;
+    --secondary-foreground: 263 20% 90%;
+
+    --muted: 263 30% 25%;
+    --muted-foreground: 263 20% 60%;
+
+    --accent: 330 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 263 30% 25%;
+    --input: 263 30% 25%;
+    --ring: 263 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-script {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .checkered-pattern {
+    background-image:
+      linear-gradient(45deg, hsl(var(--vintage-purple) / 0.15) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(var(--vintage-purple) / 0.15) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, hsl(var(--vintage-purple) / 0.15) 75%),
+      linear-gradient(-45deg, transparent 75%, hsl(var(--vintage-purple) / 0.15) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  }
+}
+
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+.animate-swing {
+  animation: swing 3s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes flash {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-flash {
+  animation: flash 0.5s ease-out;
+}
+
+@keyframes print-slide {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-print-slide {
+  animation: print-slide 2s ease-out forwards;
+}
